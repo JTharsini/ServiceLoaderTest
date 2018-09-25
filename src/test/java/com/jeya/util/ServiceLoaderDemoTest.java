@@ -21,7 +21,97 @@ public class ServiceLoaderDemoTest extends PowerMockTestCase {
 	private ServiceLoader mockServiceLoader;
 	
 	@Test
-	public void testIterate() {
+	public void testIterate_oneDefaultOnly() {
+		mockServiceLoader = PowerMockito.mock(ServiceLoader.class);
+		CPServiceImplOne cpServiceImplOne = new CPServiceImplOne();
+
+		List<CPService> mutableList = new ArrayList<>();
+		mutableList.add(cpServiceImplOne);
+		
+		List<CPService> immutableList = Collections.unmodifiableList(mutableList);
+		
+		when(mockServiceLoader.iterator()).thenReturn(immutableList.iterator());
+		CPService methodToTest = null;
+		try {
+			methodToTest = method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
+					.in(serviceLoaderDemo).invoke(mockServiceLoader);
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		}
+		assertEquals(methodToTest.getClass(), CPServiceImplOne.class);
+	}
+	
+	@Test
+	public void testIterate_oneNonDefaultOnly() {
+		mockServiceLoader = PowerMockito.mock(ServiceLoader.class);
+		CPServiceImplTwo cpServiceImplTwo = new CPServiceImplTwo();
+
+		List<CPService> mutableList = new ArrayList<>();
+		mutableList.add(cpServiceImplTwo);
+		
+		List<CPService> immutableList = Collections.unmodifiableList(mutableList);
+		
+		when(mockServiceLoader.iterator()).thenReturn(immutableList.iterator());
+		CPService methodToTest = null;
+		try {
+			methodToTest = method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
+					.in(serviceLoaderDemo).invoke(mockServiceLoader);
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		}
+		assertEquals(methodToTest.getClass(), CPServiceImplTwo.class);
+	}
+	
+	@Test
+	public void testIterate_moreThanOneNonDefault() {
+		mockServiceLoader = PowerMockito.mock(ServiceLoader.class);
+		CPServiceImplTwo cpServiceImplTwo = new CPServiceImplTwo();
+		CPServiceImplThree cpServiceImplThree = new CPServiceImplThree();
+
+		List<CPService> mutableList = new ArrayList<>();
+		mutableList.add(cpServiceImplTwo);
+		mutableList.add(cpServiceImplThree);
+		
+		List<CPService> immutableList = Collections.unmodifiableList(mutableList);
+		
+		when(mockServiceLoader.iterator()).thenReturn(immutableList.iterator());
+		CPService methodToTest = null;
+		try {
+			methodToTest = method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
+					.in(serviceLoaderDemo).invoke(mockServiceLoader);
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		}
+		assertEquals(methodToTest.getClass(), CPServiceImplThree.class);
+	}
+	
+	@Test
+	public void testIterate_oneDefaultmoreThanOneNonDefault() {
+		mockServiceLoader = PowerMockito.mock(ServiceLoader.class);
+		CPServiceImplOne cpServiceImplOne = new CPServiceImplOne();
+		CPServiceImplTwo cpServiceImplTwo = new CPServiceImplTwo();
+		CPServiceImplThree cpServiceImplThree = new CPServiceImplThree();
+
+		List<CPService> mutableList = new ArrayList<>();
+		mutableList.add(cpServiceImplTwo);
+		mutableList.add(cpServiceImplThree);
+		mutableList.add(cpServiceImplOne);
+		
+		List<CPService> immutableList = Collections.unmodifiableList(mutableList);
+		
+		when(mockServiceLoader.iterator()).thenReturn(immutableList.iterator());
+		CPService methodToTest = null;
+		try {
+			methodToTest = method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
+					.in(serviceLoaderDemo).invoke(mockServiceLoader);
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		}
+		assertEquals(methodToTest.getClass(), CPServiceImplThree.class);
+	}
+	
+	@Test
+	public void testIterate_oneDefaultAndOneNonDefault() {
 		mockServiceLoader = PowerMockito.mock(ServiceLoader.class);
 		CPServiceImplTwo cpServiceImplTwo = new CPServiceImplTwo();
 		CPServiceImplOne cpServiceImplOne = new CPServiceImplOne();
@@ -40,6 +130,6 @@ public class ServiceLoaderDemoTest extends PowerMockTestCase {
 		} catch (SecurityException e) {
 			e.printStackTrace();
 		}
-		assertEquals(methodToTest.getClass(), CPServiceImplOne.class);
+		assertEquals(methodToTest.getClass(), CPServiceImplTwo.class);
 	}
 }

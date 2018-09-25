@@ -1,10 +1,10 @@
 package com.jeya.util;
 
-public class CPServiceImplTwo implements CPService {
+public class CPServiceImplThree implements CPService {
 
 	@Override
 	public void show() {
-		System.out.println("CPServiceImplTwo has been loaded");
+		System.out.println("CPServiceImplThree has been loaded");
 	}
 
 	@Override

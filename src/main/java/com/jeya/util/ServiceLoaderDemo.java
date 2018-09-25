@@ -11,11 +11,13 @@ public class ServiceLoaderDemo {
 
 	private CPService iterate(ServiceLoader<CPService> serviceLoader) {
 		CPService nonDefault = null;
+		boolean first = true;
 		for (CPService cpService : serviceLoader) {
-			cpService.show();
-			if(!cpService.isDefault())
-			{
+			if ((!first) && (!cpService.isDefault())) {
 				nonDefault = cpService;
+			} else if (first) {
+				nonDefault = cpService;
+				first = false;
 			}
 		}
 		return nonDefault;

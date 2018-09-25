@@ -9,6 +9,6 @@ public class CPServiceImplOne implements CPService {
 
 	@Override
 	public boolean isDefault() {
-		return false;
+		return true;
 	}
 }
