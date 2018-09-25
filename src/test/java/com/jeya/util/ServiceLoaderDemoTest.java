@@ -9,18 +9,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ServiceLoader;
 
-import org.junit.runner.RunWith;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.modules.testng.PowerMockTestCase;
 import org.testng.annotations.Test;
 
-import com.jeya.util.CPServiceImplOne;
-import com.jeya.util.CPServiceImplTwo;
-import com.jeya.util.ServiceLoaderDemo;
-
-@RunWith(PowerMockRunner.class)
 @PrepareForTest(ServiceLoaderDemo.class)
 public class ServiceLoaderDemoTest extends PowerMockTestCase {
 	private ServiceLoaderDemo serviceLoaderDemo = new ServiceLoaderDemo();
