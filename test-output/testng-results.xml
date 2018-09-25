@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="300" started-at="2018-09-25T07:48:39Z" finished-at="2018-09-25T07:48:39Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="300" started-at="2018-09-25T07:48:39Z" finished-at="2018-09-25T07:48:39Z">
+      <class name="com.jeya.util.ServiceLoaderDemoTest">
+        <test-method status="PASS" signature="beforePowerMockTestClass()[pri:0, instance:com.jeya.util.ServiceLoaderDemoTest@64d2d351]" name="beforePowerMockTestClass" is-config="true" duration-ms="16" started-at="2018-09-25T13:18:39Z" finished-at="2018-09-25T13:18:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforePowerMockTestClass -->
+        <test-method status="PASS" signature="beforePowerMockTestMethod()[pri:0, instance:com.jeya.util.ServiceLoaderDemoTest@64d2d351]" name="beforePowerMockTestMethod" is-config="true" duration-ms="93" started-at="2018-09-25T13:18:39Z" finished-at="2018-09-25T13:18:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforePowerMockTestMethod -->
+        <test-method status="PASS" signature="testIterate()[pri:0, instance:com.jeya.util.ServiceLoaderDemoTest@64d2d351]" name="testIterate" duration-ms="190" started-at="2018-09-25T13:18:39Z" finished-at="2018-09-25T13:18:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testIterate -->
+        <test-method status="PASS" signature="afterPowerMockTestMethod()[pri:0, instance:com.jeya.util.ServiceLoaderDemoTest@64d2d351]" name="afterPowerMockTestMethod" is-config="true" duration-ms="0" started-at="2018-09-25T13:18:39Z" finished-at="2018-09-25T13:18:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterPowerMockTestMethod -->
+        <test-method status="PASS" signature="afterPowerMockTestClass()[pri:0, instance:com.jeya.util.ServiceLoaderDemoTest@64d2d351]" name="afterPowerMockTestClass" is-config="true" duration-ms="0" started-at="2018-09-25T13:18:39Z" finished-at="2018-09-25T13:18:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterPowerMockTestClass -->
+      </class> <!-- com.jeya.util.ServiceLoaderDemoTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
