@@ -6,4 +6,9 @@ public class CPServiceImplOne implements CPService {
 	public void show() {
 		System.out.println("CPServiceImplOne has been loaded");
 	}
+
+	@Override
+	public boolean isDefault() {
+		return false;
+	}
 }
