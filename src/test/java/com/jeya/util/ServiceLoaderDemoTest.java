@@ -1,7 +1,7 @@
 package com.jeya.util;
 
-import static org.fest.reflect.core.Reflection.method;
-import static org.mockito.Mockito.when;
+import org.fest.reflect.core.Reflection;
+import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,17 +24,17 @@ public class ServiceLoaderDemoTest extends PowerMockTestCase {
 	public void testIterate_oneDefaultOnly() {
 		mockServiceLoader = PowerMockito.mock(ServiceLoader.class);
 		CPService defaultPlugin = PowerMockito.mock(CPService.class);
-		when(defaultPlugin.isDefault()).thenReturn(true);
+		Mockito.when(defaultPlugin.isDefault()).thenReturn(true);
 
 		List<CPService> mutableList = new ArrayList<>();
 		mutableList.add(defaultPlugin);
 		
 		List<CPService> immutableList = Collections.unmodifiableList(mutableList);
 		
-		when(mockServiceLoader.iterator()).thenReturn(immutableList.iterator());
+		Mockito.when(mockServiceLoader.iterator()).thenReturn(immutableList.iterator());
 		CPService methodToTest = null;
 		try {
-			methodToTest = method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
+			methodToTest = Reflection.method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
 					.in(serviceLoaderDemo).invoke(mockServiceLoader);
 		} catch (SecurityException e) {
 			Assert.fail();
@@ -47,17 +47,17 @@ public class ServiceLoaderDemoTest extends PowerMockTestCase {
 		mockServiceLoader = PowerMockito.mock(ServiceLoader.class);
 		
 		CPService nonDefaultPlugin1 = PowerMockito.mock(CPService.class);
-		when(nonDefaultPlugin1.isDefault()).thenReturn(false);
+		Mockito.when(nonDefaultPlugin1.isDefault()).thenReturn(false);
 		
 		List<CPService> mutableList = new ArrayList<>();
 		mutableList.add(nonDefaultPlugin1);
 		
 		List<CPService> immutableList = Collections.unmodifiableList(mutableList);
 		
-		when(mockServiceLoader.iterator()).thenReturn(immutableList.iterator());
+		Mockito.when(mockServiceLoader.iterator()).thenReturn(immutableList.iterator());
 		CPService methodToTest = null;
 		try {
-			methodToTest = method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
+			methodToTest = Reflection.method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
 					.in(serviceLoaderDemo).invoke(mockServiceLoader);
 		} catch (SecurityException e) {
 			Assert.fail();
@@ -70,9 +70,9 @@ public class ServiceLoaderDemoTest extends PowerMockTestCase {
 		mockServiceLoader = PowerMockito.mock(ServiceLoader.class);
 		
 		CPService nonDefaultPlugin1 = PowerMockito.mock(CPService.class);
-		when(nonDefaultPlugin1.isDefault()).thenReturn(false);
+		Mockito.when(nonDefaultPlugin1.isDefault()).thenReturn(false);
 		CPService nonDefaultPlugin2 = PowerMockito.mock(CPService.class);
-		when(nonDefaultPlugin2.isDefault()).thenReturn(false);
+		Mockito.when(nonDefaultPlugin2.isDefault()).thenReturn(false);
 
 		List<CPService> mutableList = new ArrayList<>();
 		mutableList.add(nonDefaultPlugin1);
@@ -80,10 +80,10 @@ public class ServiceLoaderDemoTest extends PowerMockTestCase {
 		
 		List<CPService> immutableList = Collections.unmodifiableList(mutableList);
 		
-		when(mockServiceLoader.iterator()).thenReturn(immutableList.iterator());
+		Mockito.when(mockServiceLoader.iterator()).thenReturn(immutableList.iterator());
 		CPService methodToTest = null;
 		try {
-			methodToTest = method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
+			methodToTest = Reflection.method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
 					.in(serviceLoaderDemo).invoke(mockServiceLoader);
 		} catch (SecurityException e) {
 			Assert.fail();
@@ -96,11 +96,11 @@ public class ServiceLoaderDemoTest extends PowerMockTestCase {
 		mockServiceLoader = PowerMockito.mock(ServiceLoader.class);
 		
 		CPService defaultPlugin = PowerMockito.mock(CPService.class);
-		when(defaultPlugin.isDefault()).thenReturn(true);
+		Mockito.when(defaultPlugin.isDefault()).thenReturn(true);
 		CPService nonDefaultPlugin1 = PowerMockito.mock(CPService.class);
-		when(nonDefaultPlugin1.isDefault()).thenReturn(false);
+		Mockito.when(nonDefaultPlugin1.isDefault()).thenReturn(false);
 		CPService nonDefaultPlugin2 = PowerMockito.mock(CPService.class);
-		when(nonDefaultPlugin2.isDefault()).thenReturn(false);
+		Mockito.when(nonDefaultPlugin2.isDefault()).thenReturn(false);
 
 		List<CPService> mutableList = new ArrayList<>();
 		mutableList.add(defaultPlugin);
@@ -109,10 +109,10 @@ public class ServiceLoaderDemoTest extends PowerMockTestCase {
 		
 		List<CPService> immutableList = Collections.unmodifiableList(mutableList);
 		
-		when(mockServiceLoader.iterator()).thenReturn(immutableList.iterator());
+		Mockito.when(mockServiceLoader.iterator()).thenReturn(immutableList.iterator());
 		CPService methodToTest = null;
 		try {
-			methodToTest = method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
+			methodToTest = Reflection.method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
 					.in(serviceLoaderDemo).invoke(mockServiceLoader);
 		} catch (SecurityException e) {
 			Assert.fail();
@@ -125,9 +125,9 @@ public class ServiceLoaderDemoTest extends PowerMockTestCase {
 		mockServiceLoader = PowerMockito.mock(ServiceLoader.class);
 		
 		CPService defaultPlugin = PowerMockito.mock(CPService.class);
-		when(defaultPlugin.isDefault()).thenReturn(true);
+		Mockito.when(defaultPlugin.isDefault()).thenReturn(true);
 		CPService nonDefaultPlugin1 = PowerMockito.mock(CPService.class);
-		when(nonDefaultPlugin1.isDefault()).thenReturn(false);
+		Mockito.when(nonDefaultPlugin1.isDefault()).thenReturn(false);
 
 		List<CPService> mutableList = new ArrayList<>();
 		mutableList.add(defaultPlugin);
@@ -135,10 +135,10 @@ public class ServiceLoaderDemoTest extends PowerMockTestCase {
 		
 		List<CPService> immutableList = Collections.unmodifiableList(mutableList);
 		
-		when(mockServiceLoader.iterator()).thenReturn(immutableList.iterator());
+		Mockito.when(mockServiceLoader.iterator()).thenReturn(immutableList.iterator());
 		CPService methodToTest = null;
 		try {
-			methodToTest = method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
+			methodToTest = Reflection.method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
 					.in(serviceLoaderDemo).invoke(mockServiceLoader);
 		} catch (SecurityException e) {
 			Assert.fail();
