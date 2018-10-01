@@ -2,7 +2,6 @@ package com.jeya.util;
 
 import static org.fest.reflect.core.Reflection.method;
 import static org.mockito.Mockito.when;
-import static org.testng.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,6 +11,7 @@ import java.util.ServiceLoader;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.testng.PowerMockTestCase;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @PrepareForTest(ServiceLoaderDemo.class)
@@ -37,9 +37,9 @@ public class ServiceLoaderDemoTest extends PowerMockTestCase {
 			methodToTest = method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
 					.in(serviceLoaderDemo).invoke(mockServiceLoader);
 		} catch (SecurityException e) {
-			e.printStackTrace();
+			Assert.fail();
 		}
-		assertEquals(methodToTest, defaultPlugin);
+		Assert.assertEquals(methodToTest, defaultPlugin);
 	}
 	
 	@Test
@@ -60,9 +60,9 @@ public class ServiceLoaderDemoTest extends PowerMockTestCase {
 			methodToTest = method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
 					.in(serviceLoaderDemo).invoke(mockServiceLoader);
 		} catch (SecurityException e) {
-			e.printStackTrace();
+			Assert.fail();
 		}
-		assertEquals(methodToTest, nonDefaultPlugin1);
+		Assert.assertEquals(methodToTest, nonDefaultPlugin1);
 	}
 	
 	@Test
@@ -86,9 +86,9 @@ public class ServiceLoaderDemoTest extends PowerMockTestCase {
 			methodToTest = method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
 					.in(serviceLoaderDemo).invoke(mockServiceLoader);
 		} catch (SecurityException e) {
-			e.printStackTrace();
+			Assert.fail();
 		}
-		assertEquals(methodToTest, nonDefaultPlugin2);
+		Assert.assertEquals(methodToTest, nonDefaultPlugin2);
 	}
 	
 	@Test
@@ -115,9 +115,9 @@ public class ServiceLoaderDemoTest extends PowerMockTestCase {
 			methodToTest = method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
 					.in(serviceLoaderDemo).invoke(mockServiceLoader);
 		} catch (SecurityException e) {
-			e.printStackTrace();
+			Assert.fail();
 		}
-		assertEquals(methodToTest, nonDefaultPlugin2);
+		Assert.assertEquals(methodToTest, nonDefaultPlugin2);
 	}
 	
 	@Test
@@ -141,8 +141,8 @@ public class ServiceLoaderDemoTest extends PowerMockTestCase {
 			methodToTest = method("iterate").withReturnType(CPService.class).withParameterTypes(ServiceLoader.class)
 					.in(serviceLoaderDemo).invoke(mockServiceLoader);
 		} catch (SecurityException e) {
-			e.printStackTrace();
+			Assert.fail();
 		}
-		assertEquals(methodToTest, nonDefaultPlugin1);
+		Assert.assertEquals(methodToTest, nonDefaultPlugin1);
 	}
 }
